@@ -13,7 +13,7 @@ public interface ApprovalRepo {
 	
 	Approval selectApproval(int aprno); //R
 	
-		List<Approval> selectApproval(); //RA
+		List<Approval> selectAllApproval(); //RA
 		
 		void updateApproval(Approval aprobj); //U
 		

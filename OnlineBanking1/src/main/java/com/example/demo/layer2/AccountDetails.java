@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,10 +17,10 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="accountdetails")
+@Table(name="accountdetails00")
 public class AccountDetails {
 	@Id
-	@GeneratedValue
+	//@GeneratedValue
 	private int accountNumber;  //pk
 	
 	private String userID;
@@ -45,34 +46,34 @@ public class AccountDetails {
 	@OneToOne 
 	private CustomerDetails customerDetails;
 	
-//
-//   @OneToMany(cascade = CascadeType.ALL,mappedBy = "accountDetails")
-//    Set<Payee> payeeSet = new HashSet<Payee>();
-////	
-////	
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "accountDetails")
-//	Set<TransactionTable> transTable = new HashSet<TransactionTable>();
-//	
+
+  @OneToMany(cascade = CascadeType.ALL,mappedBy = "accountDetails")
+   Set<Payee> payeeSet = new HashSet<Payee>();
+	
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "accountDetails")
+	Set<TransactionTable> transTable = new HashSet<TransactionTable>();
+	
 	/************setter getter***************/
 	
 
 
 	
-//	
-//	public Set<Payee> getPayeeSet() {
-//		return payeeSet;
-//	}
-//	public void setPayeeSet(Set<Payee> payeeSet) {
-//		this.payeeSet = payeeSet;
-//	}
-//	
-//	public Set<TransactionTable> getTransTable() {
-//		return transTable;
-//	}
-//	public void setTransTable(Set<TransactionTable> transTable) {
-//		this.transTable = transTable;
-//	}
-//	
+	
+	public Set<Payee> getPayeeSet() {
+		return payeeSet;
+	}
+	public void setPayeeSet(Set<Payee> payeeSet) {
+		this.payeeSet = payeeSet;
+	}
+	
+	public Set<TransactionTable> getTransTable() {
+		return transTable;
+	}
+	public void setTransTable(Set<TransactionTable> transTable) {
+		this.transTable = transTable;
+	}
+	
 	public int getAccountNumber() {
 		return accountNumber;
 	}

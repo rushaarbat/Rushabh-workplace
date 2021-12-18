@@ -7,13 +7,14 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="admin")
+@Table(name="admin00")
 public class Admin {
 
 	@Id
@@ -22,18 +23,31 @@ public class Admin {
 	private String adminPassword;
 	
 	
+	
+	public Admin() {
+		super();
+	}
+	public Admin(String adminPassword, Set<Approval> approvalSet) {
+		super();
+		this.adminPassword = adminPassword;
+		this.approvalSet = approvalSet;
+	}
+	@Override
+	public String toString() {
+		return "Admin [adminID=" + adminID + ", adminPassword=" + adminPassword + ", approvalSet=" + approvalSet + "]";
+	}
 	/**************mapping**************************/
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "approval")
-	Set<Approval> approvalSet = new HashSet<Approval>();
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "admin")
+	private Set<Approval> approvalSet = new HashSet<Approval>();
 	
 	
 	/************setter getter***************/
 	
 	
-		public Set<Approval> getApprovalSet() {
-		return approvalSet;
-}
+	public Set<Approval> getApprovalSet() {
+	return approvalSet;
+    }
 	public void setApprovalSet(Set<Approval> approvalSet) {
 		this.approvalSet = approvalSet;
 	}

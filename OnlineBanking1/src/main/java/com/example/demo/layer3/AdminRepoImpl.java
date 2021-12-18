@@ -27,7 +27,7 @@ public class AdminRepoImpl extends BaseRepository implements AdminRepo{
 	}
 
 	@Override
-	public List<Admin> selectAdmin() {
+	public List<Admin> selectAllAdmin() {
 
 		List<Admin>  adminList = new ArrayList<Admin>();
 		System.out.println("AdminRepoImpl : Selecting all Admins...");

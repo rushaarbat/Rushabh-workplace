@@ -10,15 +10,5 @@ import com.example.demo.layer3.AdminRepoImpl;
 @SpringBootTest
 class OnlineBanking1ApplicationTests {
 
-	@Autowired
-	AdminRepoImpl adminRepo;
 	
-	@Test
-	void insertAdmin() {
-		Admin adminObj=new Admin();
-		adminObj.setAdminID(101);
-		adminObj.setAdminPassword("lakhan");
-		adminRepo.insertAdmin(adminObj);
-	}
-
 }

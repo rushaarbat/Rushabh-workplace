@@ -1,5 +1,6 @@
 package com.example.demo.layer3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,7 +31,8 @@ public class CustomerDetailsRepoImpl extends BaseRepository implements CustomerD
 	}
 
 	@Override
-	public List<CustomerDetails> selectCustomerDetails() {
+	public List<CustomerDetails> selectAllCustomerDetails() {
+		List<CustomerDetails> custObj=new ArrayList<CustomerDetails>();
 		System.out.println("CustomerDetailsRepoImpl : Selecting all CustomerDetails...");
 		return super.findAll("CustomerDetails");
 	}

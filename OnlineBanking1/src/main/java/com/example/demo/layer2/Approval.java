@@ -1,5 +1,6 @@
 package com.example.demo.layer2;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="approval")
+@Table(name="approval00")
 public class Approval {
 	@Id
 	@GeneratedValue
@@ -20,17 +21,36 @@ public class Approval {
 	
 	/***************mapping********************/
 	
-	@OneToOne 
+	@OneToOne (cascade = CascadeType.ALL )
 	private CustomerDetails customerDetails;
 	
 	@ManyToOne
-	@JoinColumn ( name = "adminID")
-	private Approval approval;
+	@JoinColumn(name="adminId")
+	private Admin admin;
 	
 	
+	public Approval() {
+		super();
+	}
+	public Approval(String approvalStatus, CustomerDetails customerDetails, Admin admin) {
+		super();
+		this.approvalStatus = approvalStatus;
+		this.customerDetails = customerDetails;
+		this.admin = admin;
+	}
+	@Override
+	public String toString() {
+		return "Approval [SRN=" + SRN + ", approvalStatus=" + approvalStatus + ", customerDetails=" + customerDetails
+				+ ", admin=" + admin + "]";
+	}
 	/**********setter getter *******************/
 	
-
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
 	
 	public CustomerDetails getCustomerDetails() {
 		return customerDetails;
@@ -54,7 +74,5 @@ public class Approval {
 	public void setApprovalStatus(String approvalStatus) {
 		this.approvalStatus = approvalStatus;
 	}
-	
-	
 
 }

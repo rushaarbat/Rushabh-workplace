@@ -13,7 +13,7 @@ public interface AdminRepo {
 	
 		Admin selectAdmin(int adminno); //R
 	
-		List<Admin> selectAdmin(); //RA
+		List<Admin> selectAllAdmin(); //RA
 		
 		void updateAdmin(Admin adminobj); //U
 		

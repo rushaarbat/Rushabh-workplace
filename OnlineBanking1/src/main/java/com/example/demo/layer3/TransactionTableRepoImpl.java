@@ -25,7 +25,7 @@ public class TransactionTableRepoImpl extends BaseRepository implements Transact
 	}
 
 	@Override
-	public List<TransactionTable> selectTransactionTable() {
+	public List<TransactionTable> selectAllTransactionTable() {
 		List<TransactionTable>  ttList = new ArrayList<TransactionTable>();
 		
 		System.out.println("TransactionTableRepoImpl : Selecting all TransactionTable...");

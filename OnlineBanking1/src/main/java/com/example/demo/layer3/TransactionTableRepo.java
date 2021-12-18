@@ -12,7 +12,7 @@ public interface TransactionTableRepo {
 	
 	TransactionTable selectTransactionTable(int ttno); //R
 	
-		List<TransactionTable> selectTransactionTable(); //RA
+		List<TransactionTable> selectAllTransactionTable(); //RA
 		
 		void updateTransactionTable(TransactionTable ttobj); //U
 		

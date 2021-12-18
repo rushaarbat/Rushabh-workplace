@@ -5,16 +5,16 @@ import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Customerdetails")
+@Table(name="customerdetails00")
 public class CustomerDetails {
-	@Id
-	@GeneratedValue
+	@Id	@GeneratedValue
 	private int custId;
 	private String title;
 	private String firstName;
@@ -28,13 +28,13 @@ public class CustomerDetails {
 	private double initialAmount;
 	private String residLine1;
 	private String residLine2;
-	private String residLankmark;
+	private String residLandmark;
 	private String residState;
 	private String residCity;
 	private long residPincode;
 	private String perLine1;
 	private String perLine2;
-	private String perLankmark;
+	private String perLandmark;
 	private String perState;
 	private String perCity;
 	private long perPincode;
@@ -46,12 +46,15 @@ public class CustomerDetails {
 	
 	//**********mapping*******//
 	
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "customerDetails")
+	@OneToOne( fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "customerDetails")
 	private AccountDetails accountDetails;
 	
-//	@OneToOne(cascade = CascadeType.ALL,mappedBy = "customerDetails")
-//	private Approval approval;
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "customerDetails")
+	private Approval approval;
 
+	
+	//----getters and setters-----//
+	
 	public int getCustId() {
 		return custId;
 	}
@@ -144,6 +147,22 @@ public class CustomerDetails {
 		return residLine1;
 	}
 
+	public String getResidLandmark() {
+		return residLandmark;
+	}
+
+	public void setResidLandmark(String residLandmark) {
+		this.residLandmark = residLandmark;
+	}
+
+	public String getPerLandmark() {
+		return perLandmark;
+	}
+
+	public void setPerLandmark(String perLandmark) {
+		this.perLandmark = perLandmark;
+	}
+
 	public void setResidLine1(String residLine1) {
 		this.residLine1 = residLine1;
 	}
@@ -156,13 +175,6 @@ public class CustomerDetails {
 		this.residLine2 = residLine2;
 	}
 
-	public String getResidLankmark() {
-		return residLankmark;
-	}
-
-	public void setResidLankmark(String residLankmark) {
-		this.residLankmark = residLankmark;
-	}
 
 	public String getResidState() {
 		return residState;
@@ -204,13 +216,6 @@ public class CustomerDetails {
 		this.perLine2 = perLine2;
 	}
 
-	public String getPerLankmark() {
-		return perLankmark;
-	}
-
-	public void setPerLankmark(String perLankmark) {
-		this.perLankmark = perLankmark;
-	}
 
 	public String getPerState() {
 		return perState;
@@ -266,13 +271,7 @@ public class CustomerDetails {
 
 	public void setDebitCard(String debitCard) {
 		this.debitCard = debitCard;
-	}//	public Approval getApproval() {
-//	return approval;
-//}
-//
-//public void setApproval(Approval approval) {
-//	this.approval = approval;
-//}
+	}
 
 	public String getOptNetBank() {
 		return optNetBank;
@@ -290,17 +289,17 @@ public class CustomerDetails {
 		this.accountDetails = accountDetails;
 	}
 
-//	public Approval getApproval() {
-//		return approval;
-//	}
-//
-//	public void setApproval(Approval approval) {
-//		this.approval = approval;
-//	}
+	public Approval getApproval() {
+		return approval;
+	}
+
+	public void setApproval(Approval approval) {
+		this.approval = approval;
+	}
+
 	
 	
 	
-	//----getters and setters-----//
 	
 	
 	

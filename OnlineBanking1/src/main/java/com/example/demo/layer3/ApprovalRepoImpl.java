@@ -27,7 +27,7 @@ public class ApprovalRepoImpl extends BaseRepository implements ApprovalRepo {
 	}
 
 	@Override
-	public List<Approval> selectApproval() {
+	public List<Approval> selectAllApproval() {
 		
         List<Approval>  aprList = new ArrayList<Approval>();
 		System.out.println("ApprovalRepoImpl : Selecting all Approval...");

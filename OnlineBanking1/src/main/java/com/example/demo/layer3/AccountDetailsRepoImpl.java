@@ -31,7 +31,7 @@ public class AccountDetailsRepoImpl extends BaseRepository implements AccountDet
 	}
 
 	@Override
-	public List<AccountDetails> selectAccountDetails() {
+	public List<AccountDetails> selectAllAccountDetails() {
 		List<AccountDetails>  accdlist = new ArrayList<AccountDetails>();
 		
 		System.out.println("AccountDetailsRepoImpl : Selecting all AccountDetails...");

@@ -22,41 +22,42 @@ public class CustomerDetailsCRUDTest {
 	CustomerDetails customerDetails= new CustomerDetails();
 	
 	customerDetails.setTitle("Mr");
-	customerDetails.setFirstName("lakhan");
-	customerDetails.setMiddleName("bhau");
-	customerDetails.setLastName("Shingare");
-	customerDetails.setMobileNumber(8975348428l);
-	customerDetails.setEmail("rushabh97@gmail.com");
+	customerDetails.setFirstName("Aamir");
+	customerDetails.setMiddleName("Rajesh");
+	customerDetails.setLastName("Chaubey");
+	customerDetails.setMobileNumber(77748428l);
+	customerDetails.setEmail("aamir97@gmail.com");
 	customerDetails.setAadharNumber(28466464464l);
 	customerDetails.setDob(LocalDate.of(1997, 9, 27));
-	customerDetails.setFatherName("Bhau Shingare");
+	customerDetails.setFatherName("sankar shukla");
 	customerDetails.setInitialAmount(1000);
 	customerDetails.setResidLine1("SBI Colony ");
 	customerDetails.setResidLine2("near Wagh society");
-	customerDetails.setResidLankmark("Temple");
+	customerDetails.setResidLandmark("Temple");
 	customerDetails.setResidState("MH");
 	customerDetails.setResidCity("Shegaon");
-	customerDetails.setResidPincode(444203);
+	customerDetails.setResidPincode(444203l);
 	customerDetails.setPerLine1("Krishana Nagar");
 	customerDetails.setPerLine2("near apl ghar society");
-	customerDetails.setPerLankmark("Bridge");
-	customerDetails.setPerState("UP");
-	customerDetails.setPerCity("Varanshi");
-	customerDetails.setPerPincode(412216);
+	customerDetails.setPerLandmark("Bridge");
+	customerDetails.setPerState("MH");
+	customerDetails.setPerCity("pune");
+	customerDetails.setPerPincode(412216l);
 	customerDetails.setOccupationType(" Soft Engg");
 	customerDetails.setIncomeSource("Job");
 	customerDetails.setGrossAnnualIncome(500000);
 	customerDetails.setDebitCard("Y");
 	customerDetails.setOptNetBank("Y");
+	
 	custDetRepoImpl.insertCustomerDetails(customerDetails);
 	
 	}
 
 	@Test
 	public void selectCustDetTest() {
-		CustomerDetails customerDetails = custDetRepoImpl.selectCustomerDetails(6);
+		CustomerDetails customerDetails = custDetRepoImpl.selectCustomerDetails(68);
 		
-			
+		    System.out.println("********************************");
 			System.out.println("customerDetails CustID : "+customerDetails.getCustId());
 			System.out.println("customerDetails Title : "+ customerDetails.getTitle());
 			System.out.println("customerDetails first name"+ customerDetails.getFirstName());
@@ -70,13 +71,13 @@ public class CustomerDetailsCRUDTest {
 			System.out.println("customerDetails Initial Amount :"+ customerDetails.getInitialAmount());
 			System.out.println("customerDetails Reside LIne 1: "+customerDetails.getResidLine1());
 			System.out.println("customerDetails Reside LIne 2"+customerDetails.getResidLine2());
-			System.out.println("customerDetails REsi LAnd Mark :"+customerDetails.getResidLankmark());
+			System.out.println("customerDetails REsi LAnd Mark :"+customerDetails.getResidLandmark());
 			System.out.println("customerDetails Resi State :"+ customerDetails.getResidState());
 			System.out.println("customerDetails Resid City :"+ customerDetails.getResidCity());
 			System.out.println(" customerDetails Resid PIN Code : "+ customerDetails.getResidPincode());
 			System.out.println("customerDetails PerLine 1 :"+ customerDetails.getPerLine1());
 			System.out.println("customerDetails Per Line 2 ;"+ customerDetails.getPerLine2());
-			System.out.println("customerDetails Per Land mark  :"+ customerDetails.getPerLankmark());
+			System.out.println("customerDetails Per Land mark  :"+ customerDetails.getPerLandmark());
 			System.out.println("customerDetails Per State :"+ customerDetails.getPerState());
 			System.out.println("customerDetails per City :"+ customerDetails.getPerCity());
 			System.out.println("customerDetails per pincode :"+ customerDetails.getPerPincode());
@@ -85,14 +86,15 @@ public class CustomerDetailsCRUDTest {
 			System.out.println("customerDetails  Gross Annual Income "+customerDetails.getGrossAnnualIncome());
 			System.out.println("customerDetails Debit Card :"+ customerDetails.getDebitCard());
 			System.out.println("customerDetails  Option NetBanking :"+customerDetails.getOptNetBank());
-			
+			System.out.println("****************************************");
 	}
 
 	@Test
 	void selectAllCustDelailsTest() {
 	List <CustomerDetails> custList ;
-	custList = custDetRepoImpl.selectCustomerDetails();
+	custList = custDetRepoImpl.selectAllCustomerDetails();
 		for (CustomerDetails customerDetails : custList) {
+			System.out.println("****************************************");
 			System.out.println("customerDetails CustID : "+customerDetails.getCustId());
 			System.out.println("customerDetails Title : "+ customerDetails.getTitle());
 			System.out.println("customerDetails first name"+ customerDetails.getFirstName());
@@ -106,13 +108,13 @@ public class CustomerDetailsCRUDTest {
 			System.out.println("customerDetails Initial Amount :"+ customerDetails.getInitialAmount());
 			System.out.println("customerDetails Reside LIne 1: "+customerDetails.getResidLine1());
 			System.out.println("customerDetails Reside LIne 2"+customerDetails.getResidLine2());
-			System.out.println("customerDetails REsi LAnd Mark :"+customerDetails.getResidLankmark());
+			System.out.println("customerDetails REsi LAnd Mark :"+customerDetails.getResidLandmark());
 			System.out.println("customerDetails Resi State :"+ customerDetails.getResidState());
 			System.out.println("customerDetails Resid City :"+ customerDetails.getResidCity());
 			System.out.println(" customerDetails Resid PIN Code : "+ customerDetails.getResidPincode());
 			System.out.println("customerDetails PerLine 1 :"+ customerDetails.getPerLine1());
 			System.out.println("customerDetails Per Line 2 ;"+ customerDetails.getPerLine2());
-			System.out.println("customerDetails Per Land mark  :"+ customerDetails.getPerLankmark());
+			System.out.println("customerDetails Per Land mark  :"+ customerDetails.getPerLandmark());
 			System.out.println("customerDetails Per State :"+ customerDetails.getPerState());
 			System.out.println("customerDetails per City :"+ customerDetails.getPerCity());
 			System.out.println("customerDetails per pincode :"+ customerDetails.getPerPincode());
@@ -121,7 +123,7 @@ public class CustomerDetailsCRUDTest {
 			System.out.println("customerDetails  Gross Annual Income "+customerDetails.getGrossAnnualIncome());
 			System.out.println("customerDetails Debit Card :"+ customerDetails.getDebitCard());
 			System.out.println("customerDetails  Option NetBanking :"+customerDetails.getOptNetBank());
-			
+			System.out.println("****************************************");
 	}
 	}
 
@@ -132,26 +134,26 @@ public class CustomerDetailsCRUDTest {
 		CustomerDetails customerDetails=new CustomerDetails();
 		
 
-		customerDetails.setCustId(5);
-		customerDetails.setTitle("Mr");
-		customerDetails.setFirstName("Rocky");
-		customerDetails.setMiddleName("hari");
-		customerDetails.setLastName("Bhai");
-		customerDetails.setMobileNumber(8975348428l);
-		customerDetails.setEmail("rushabh97@gmail.com");
+		customerDetails.setCustId(67);
+		customerDetails.setTitle("MIS");
+		customerDetails.setFirstName("SANA");
+		customerDetails.setMiddleName("DEELAP");
+		customerDetails.setLastName("ROY");
+		customerDetails.setMobileNumber(55454554582l);
+		customerDetails.setEmail("sana97@gmail.com");
 		customerDetails.setAadharNumber(28466464464l);
 		customerDetails.setDob(LocalDate.of(1997, 9, 27));
-		customerDetails.setFatherName("Prakash Arbat");
+		customerDetails.setFatherName("DEELAP ROY");
 		customerDetails.setInitialAmount(1000);
 		customerDetails.setResidLine1("SBI Colony ");
 		customerDetails.setResidLine2("near Wagh society");
-		customerDetails.setResidLankmark("Temple");
+		customerDetails.setResidLandmark("HOTEL");
 		customerDetails.setResidState("MH");
 		customerDetails.setResidCity("Shegaon");
 		customerDetails.setResidPincode(444203);
 		customerDetails.setPerLine1("Krishana Nagar");
 		customerDetails.setPerLine2("near apl ghar society");
-		customerDetails.setPerLankmark("Bridge");
+		customerDetails.setPerLandmark("ROD");
 		customerDetails.setPerState("UP");
 		customerDetails.setPerCity("Varanshi");
 		customerDetails.setPerPincode(412216);
@@ -167,7 +169,7 @@ public class CustomerDetailsCRUDTest {
 	void deleteCustDetailsTest(){
 		CustomerDetails customerDetails=new CustomerDetails();
 		
-		custDetRepoImpl.deleteCustomerDetails(5);
+		custDetRepoImpl.deleteCustomerDetails(68);
 	}
   
 	
