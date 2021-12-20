@@ -32,7 +32,7 @@ public class ApprovalCRUDTest {
 
 		Approval approval = new Approval();
 
-		approval.setApprovalStatus("Pending");
+		approval.setApprovalStatus("cancle....");
 
 		approvalRepoImpl.insertApproval(approval);
 
@@ -41,7 +41,7 @@ public class ApprovalCRUDTest {
 	@Test
 	void SelectApprovalTest() {
 
-		Approval approval = approvalRepoImpl.selectApproval(29);
+		Approval approval = approvalRepoImpl.selectApproval(6);
 		System.out.println("****************************************");
 		System.out.println(" Approval service refrence number  is : " + approval.getSRN());
 		System.out.println("accountDetails User Id : " + approval.getApprovalStatus());
@@ -56,29 +56,31 @@ public class ApprovalCRUDTest {
 			System.out.println("****************************************");
 			System.out.println("approval service refrence number is : " + approval.getSRN());
 			System.out.println("Approval Status is : " + approval.getApprovalStatus());
+			System.out.println("****************************************");
 		}
 	}
 
 	@Test
 	public void updateApprovalTest() {
 		Approval approval = new Approval();
-		approval.setSRN(29);
+		approval.setSRN(6);
 		approval.setApprovalStatus("waiting..");
+		approvalRepoImpl.updateApproval(approval);
 
 	}
 
 	@Test
 	public void deleteApprovalTest() {
 		Approval approval = new Approval();
-		approvalRepoImpl.deleteApproval(29);
+		approvalRepoImpl.deleteApproval(6);
 	}
 
 //****************one to one with customerDetails******************************//
 	@Test
 	public void InsertCustomerToExistingApproval() {
 
-		Approval approval = approvalRepoImpl.find(Approval.class, 75);
-		CustomerDetails customerDetails = custDetRepoImpl.find(CustomerDetails.class, 67);
+		Approval approval = approvalRepoImpl.find(Approval.class, 17);
+		CustomerDetails customerDetails = custDetRepoImpl.find(CustomerDetails.class, 1);
 
 		approval.setCustomerDetails(customerDetails);
 		customerDetails.setApproval(approval);
@@ -90,7 +92,7 @@ public class ApprovalCRUDTest {
 	@Test
 	void insertAdminToApproval() {
 		
-		Admin admin = adminRepoImpl.selectAdmin(74);
+		Admin admin = adminRepoImpl.selectAdmin(16);
 		
 		Approval appu = new Approval();
 		

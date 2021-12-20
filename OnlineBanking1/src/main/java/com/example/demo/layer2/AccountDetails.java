@@ -20,12 +20,12 @@ import javax.persistence.Table;
 @Table(name="accountdetails00")
 public class AccountDetails {
 	@Id
-	//@GeneratedValue
+	@GeneratedValue
 	private int accountNumber;  //pk
 	
 	private String userID;
 	
-	private LocalDate createdOn;
+	private LocalDate createdOn = java.time.LocalDate.now();;
 	
 	private String accountStatus;
 	
@@ -43,21 +43,56 @@ public class AccountDetails {
 	
 	/**************mapping**************************/
 	
-	@OneToOne 
+	@OneToOne (cascade = CascadeType.ALL)
 	private CustomerDetails customerDetails;
 	
 
-  @OneToMany(cascade = CascadeType.ALL,mappedBy = "accountDetails")
-   Set<Payee> payeeSet = new HashSet<Payee>();
+  @OneToMany( mappedBy = "accountDetails", cascade = CascadeType.ALL)
+  private  Set<Payee> payeeSet = new HashSet<Payee>();
 	
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "accountDetails")
-	Set<TransactionTable> transTable = new HashSet<TransactionTable>();
+	@OneToMany( mappedBy = "accountDetails" , cascade = CascadeType.ALL)
+	private Set<TransactionTable> transTable = new HashSet<TransactionTable>();
 	
+
+	
+
+	//***********************************************************//
+	
+	
+	
+	public AccountDetails(String userID, LocalDate createdOn, String accountStatus, String accountLock,
+			String loginPassword, String transactionPassword, String accountType, double accountBalance,
+			CustomerDetails customerDetails, Set<Payee> payeeSet, Set<TransactionTable> transTable) {
+		super();
+		this.userID = userID;
+		this.createdOn = createdOn;
+		this.accountStatus = accountStatus;
+		this.accountLock = accountLock;
+		this.loginPassword = loginPassword;
+		this.transactionPassword = transactionPassword;
+		this.accountType = accountType;
+		this.accountBalance = accountBalance;
+		this.customerDetails = customerDetails;
+		this.payeeSet = payeeSet;
+		this.transTable = transTable;
+	}
+	
+	public AccountDetails() {
+		super();
+	}
+	
+
+	@Override
+	public String toString() {
+		return "AccountDetails [accountNumber=" + accountNumber + ", userID=" + userID + ", createdOn=" + createdOn
+				+ ", accountStatus=" + accountStatus + ", accountLock=" + accountLock + ", loginPassword="
+				+ loginPassword + ", transactionPassword=" + transactionPassword + ", accountType=" + accountType
+				+ ", accountBalance=" + accountBalance + ", customerDetails=" + customerDetails + ", payeeSet="
+				+ payeeSet + ", transTable=" + transTable + "]";
+	}
+
 	/************setter getter***************/
-	
-
-
 	
 	
 	public Set<Payee> getPayeeSet() {

@@ -46,15 +46,75 @@ public class CustomerDetails {
 	
 	//**********mapping*******//
 	
-	@OneToOne( fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "customerDetails")
+	@OneToOne(mappedBy = "customerDetails" , cascade = CascadeType.ALL)
 	private AccountDetails accountDetails;
 	
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "customerDetails")
+	@OneToOne(mappedBy = "customerDetails" , cascade = CascadeType.ALL)
 	private Approval approval;
 
 	
+	/***************************************/
+	
+	public CustomerDetails(String title, String firstName, String middleName, String lastName, long mobileNumber,
+			String email, long aadharNumber, LocalDate dob, String fatherName, double initialAmount, String residLine1,
+			String residLine2, String residLandmark, String residState, String residCity, long residPincode,
+			String perLine1, String perLine2, String perLandmark, String perState, String perCity, long perPincode,
+			String occupationType, String incomeSource, double grossAnnualIncome, String debitCard, String optNetBank,
+			AccountDetails accountDetails, Approval approval) {
+		super();
+		this.title = title;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.mobileNumber = mobileNumber;
+		this.email = email;
+		this.aadharNumber = aadharNumber;
+		this.dob = dob;
+		this.fatherName = fatherName;
+		this.initialAmount = initialAmount;
+		this.residLine1 = residLine1;
+		this.residLine2 = residLine2;
+		this.residLandmark = residLandmark;
+		this.residState = residState;
+		this.residCity = residCity;
+		this.residPincode = residPincode;
+		this.perLine1 = perLine1;
+		this.perLine2 = perLine2;
+		this.perLandmark = perLandmark;
+		this.perState = perState;
+		this.perCity = perCity;
+		this.perPincode = perPincode;
+		this.occupationType = occupationType;
+		this.incomeSource = incomeSource;
+		this.grossAnnualIncome = grossAnnualIncome;
+		this.debitCard = debitCard;
+		this.optNetBank = optNetBank;
+		this.accountDetails = accountDetails;
+		this.approval = approval;
+	}
+
+	public CustomerDetails() {
+		super();
+	}
+
+	
+	@Override
+	public String toString() {
+		return "CustomerDetails [custId=" + custId + ", title=" + title + ", firstName=" + firstName + ", middleName="
+				+ middleName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + ", email=" + email
+				+ ", aadharNumber=" + aadharNumber + ", dob=" + dob + ", fatherName=" + fatherName + ", initialAmount="
+				+ initialAmount + ", residLine1=" + residLine1 + ", residLine2=" + residLine2 + ", residLandmark="
+				+ residLandmark + ", residState=" + residState + ", residCity=" + residCity + ", residPincode="
+				+ residPincode + ", perLine1=" + perLine1 + ", perLine2=" + perLine2 + ", perLandmark=" + perLandmark
+				+ ", perState=" + perState + ", perCity=" + perCity + ", perPincode=" + perPincode + ", occupationType="
+				+ occupationType + ", incomeSource=" + incomeSource + ", grossAnnualIncome=" + grossAnnualIncome
+				+ ", debitCard=" + debitCard + ", optNetBank=" + optNetBank + ", accountDetails=" + accountDetails
+				+ ", approval=" + approval + "]";
+	}
+	
 	//----getters and setters-----//
 	
+
 	public int getCustId() {
 		return custId;
 	}

@@ -11,12 +11,12 @@ public interface AccountDetailsRepo {
 
 	void insertAccountDetails(AccountDetails adobj); //C
 		
-	AccountDetails selectAccountDetails(int adno) throws AccountNotFoundException; //R
+	    AccountDetails selectAccountDetails(int adno) ;//R
 	
 		List<AccountDetails> selectAllAccountDetails(); //RA
 		
 		void updateAccountDetails(AccountDetails adobj); //U
 		
-		void deleteAccountDetails(int adno) throws AccountNotFoundException ; //D
+		void deleteAccountDetails(int adno); //D
 
 }

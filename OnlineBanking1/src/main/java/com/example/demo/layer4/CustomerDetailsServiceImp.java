@@ -17,33 +17,28 @@ public class CustomerDetailsServiceImp implements CustomerDetailsService{
 	CustomerDetailsRepoImpl cusDetailsRepoImpl;
 
 	@Override
-	public void selectCustomerDetails(int cdno)   {
+	public CustomerDetails selectCustomerDetails(int cdno) {
 		
-	try {
-		 cusDetailsRepoImpl.selectCustomerDetails(cdno);
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-		
+		return  cusDetailsRepoImpl.selectCustomerDetails(cdno);
 	}
 
 	@Override
-	public List<CustomerDetails> getCustomerDetails() {
+	public List<CustomerDetails> selectAllCustomerDetails() {
 		
 		return cusDetailsRepoImpl.selectAllCustomerDetails();
 	}
 
-	@Override
-	public void updateCustomerDetails(int id, CustomerDetails customerDetails) {
-	cusDetailsRepoImpl.merge(customerDetails);
 
+
+	@Transactional
+	public void insertCustomerDetails(CustomerDetails cdobj) {
+		cusDetailsRepoImpl.insertCustomerDetails(cdobj);
+		
 	}
 
-	@Override
-	public void insertCustomerDetails(CustomerDetails customerDetails) {
-		
+	@Transactional
+	public void updateCustomerDetails(CustomerDetails cdobj) {
+		cusDetailsRepoImpl.merge(cdobj);
 		
 	}
 	

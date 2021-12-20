@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.layer2.Approval;
-import com.example.demo.layer2.TransactionTable;
+
 @Repository
 public class ApprovalRepoImpl extends BaseRepository implements ApprovalRepo {
 

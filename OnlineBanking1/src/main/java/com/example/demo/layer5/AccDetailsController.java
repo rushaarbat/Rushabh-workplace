@@ -22,39 +22,38 @@ import com.example.demo.layer3.AccountDetailsRepoImpl;
 public class AccDetailsController {
 	
 	@Autowired 
-	AccountDetailsRepoImpl AccDetailsRepoImpl;
+	AccountDetailsRepoImpl accDetailsRepoImpl;
 	
-	@GetMapping("/get/{ACCNO}") // http://localhost:8080/cust/get/21
-	public AccountDetails getAcc (@PathVariable ("ACCNO") int x) {
+	@GetMapping("/get/{adno}") // http://localhost:8080/accountdetails/get/21
+	public AccountDetails getAcc (@PathVariable int adno) {
 		AccountDetails acc;
 		
-		acc=AccDetailsRepoImpl.selectAccountDetails(x);
+		acc=accDetailsRepoImpl.selectAccountDetails(adno);
 		return acc;
 	}
 	
-	@GetMapping("/getAll")  // http://localhost:8080/accountdetails/getAll
+	@GetMapping("/getAll")  // http://localhost:8081/accountdetails/getAll
 	public List <AccountDetails> getAccs(){
-		List <AccountDetails> accList;
-		accList=AccDetailsRepoImpl.selectAllAccountDetails();
-		return accList;
+		
+		return  accDetailsRepoImpl.selectAllAccountDetails();
 	}
 	
 	@PostMapping("/add")   // http://localhost:8080/cust/add
-	public void addAcc(@RequestBody AccountDetails accObj) {
+	public void addAcc(@RequestBody AccountDetails adobj) {
 		
-		AccDetailsRepoImpl.insertAccountDetails(accObj);
+		accDetailsRepoImpl.insertAccountDetails(adobj);
 	}
 	
 	@PutMapping("/update")   // http://localhost:8080/cust/update
-	public void updateAcc(@RequestBody AccountDetails accObj) {
+	public void updateAcc(@RequestBody AccountDetails adobj) {
 		
-		AccDetailsRepoImpl.updateAccountDetails(accObj);
+		accDetailsRepoImpl.updateAccountDetails(adobj);
 	}
 	
-	@DeleteMapping("/delete/{ACCNO}")   // http://localhost:8080/cust/delete
-	public void deleteAcc(@RequestBody  int accObj) {
+	@DeleteMapping("/delete/{adno}")   // http://localhost:8080/cust/delete
+	public void deleteAcc(@RequestBody  int adno) {
 		
-		AccDetailsRepoImpl.deleteAccountDetails(accObj);
+		accDetailsRepoImpl.deleteAccountDetails(adno);
 	}
 
 }

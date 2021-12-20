@@ -27,8 +27,7 @@ public class AccountDetailsCRUDTest {
 		
 AccountDetails accountDetails = new AccountDetails();
 		
-		accountDetails.setUserID("nikita");
-		accountDetails.setCreatedOn(LocalDate.of(2020, 9, 27));
+		accountDetails.setUserID("Avinash21");
         accountDetails.setAccountStatus("Approv");
         accountDetails.setAccountLock("@123");
         accountDetails.setLoginPassword("ds54#");
@@ -41,7 +40,7 @@ AccountDetails accountDetails = new AccountDetails();
 	
 	@Test
 	public void selectAccountDetailsTest() {
-		AccountDetails accountDetails = accDetRepoImp.selectAccountDetails(70);
+		AccountDetails accountDetails = accDetRepoImp.selectAccountDetails(5);
 		
 		    System.out.println("****************************************");
 			System.out.println("accountDetails Account Number : "+accountDetails.getAccountNumber());
@@ -80,22 +79,21 @@ accDetailsList = accDetRepoImp.selectAllAccountDetails();
 @Test
 void updateAccountDetailsTest(){
 	AccountDetails accountDetails=new AccountDetails();
-	accountDetails.setAccountNumber(2);
+	accountDetails.setAccountNumber(5);
 	accountDetails.setUserID("ABC12");
-	accountDetails.setCreatedOn(LocalDate.of(2020, 9, 27));
-    accountDetails.setAccountStatus("pending");
+    accountDetails.setAccountStatus("approve");
     accountDetails.setAccountLock("@123");
     accountDetails.setLoginPassword("123#");
     accountDetails.setTransactionPassword("TRR@12");
     accountDetails.setAccountType("Saving Type");
-    accountDetails.setAccountBalance(12000);
+    accountDetails.setAccountBalance(25000);
 	accDetRepoImp.updateAccountDetails(accountDetails);
 }
 @Test
 void deleteAccountDetailsTest(){
 	AccountDetails accountDetails=new AccountDetails();
 	
-	accDetRepoImp.deleteAccountDetails(71);
+	accDetRepoImp.deleteAccountDetails(5);
 }
 
 
@@ -104,9 +102,9 @@ void deleteAccountDetailsTest(){
 public void insertcustDetailsToExistingAccountTest () {
 	
 	
-	AccountDetails accObj1 = accDetRepoImp.find(AccountDetails.class, 70);
+	AccountDetails accObj1 = accDetRepoImp.find(AccountDetails.class, 4);
 	
-	CustomerDetails custObj1 = custRepo.find(CustomerDetails.class, 67);
+	CustomerDetails custObj1 = custRepo.find(CustomerDetails.class, 1);
 	
 	custObj1.setAccountDetails(accObj1);// are we setting the FK?
 	accObj1.setCustomerDetails(custObj1); // are we setting the FK?

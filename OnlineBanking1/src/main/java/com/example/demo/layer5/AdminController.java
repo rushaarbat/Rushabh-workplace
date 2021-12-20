@@ -22,37 +22,34 @@ public class AdminController {
 	@Autowired
 	AdminRepoImpl adminRepoImpl;
 	
-	@GetMapping("/get/{ADMINID}")   //http://localhost:8080/cust/get/25
-	public Admin getAdmin (@PathVariable ("ADMINID") int x) {
-		Admin admin;
-		
-		admin=adminRepoImpl.selectAdmin(x);
-		return admin;
+	@GetMapping("/get/{adminno}")   //http://localhost:8080/admin/get/25
+	public Admin getAdmin (@PathVariable int adminno) {
+	
+		return adminRepoImpl.selectAdmin(adminno);
 	}
 	
-	@GetMapping("/getAll")    //http://localhost:8080/cust/getAll
+	@GetMapping("/getAll")    //http://localhost:8080/admin/getAll
 	public List <Admin> getAdmins(){
-		List <Admin> adminList;
-		adminList=adminRepoImpl.selectAllAdmin();
-		return adminList;
+	
+		return adminRepoImpl.selectAllAdmin();
 	}
 	
 	@PostMapping("/add")        //http://localhost:8080/cust/add
-	public void addAdmin(@RequestBody Admin adminObj) {
+	public void addAdmin(@RequestBody Admin adminobj) {
 		
-		adminRepoImpl.insertAdmin(adminObj);
+		adminRepoImpl.insertAdmin(adminobj);
 	}
 	
 	@PutMapping("/update")
-	public void updateAdmin(@RequestBody Admin adminObj) {
+	public void updateAdmin(@RequestBody Admin adminobj) {
 		
-		adminRepoImpl.updateAdmin(adminObj);
+		adminRepoImpl.updateAdmin(adminobj);
 	}
 	
-	@DeleteMapping("/delete/{ADMINID}")
-	public void deleteDept(@RequestBody  int adminObj) {
+	@DeleteMapping("/delete/{adminno}")
+	public void deleteDept(@RequestBody  int adminno) {
 		
-		adminRepoImpl.deleteAdmin(adminObj);
+		adminRepoImpl.deleteAdmin(adminno);
 	}
 
 }

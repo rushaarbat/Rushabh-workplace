@@ -19,8 +19,8 @@ AdminRepoImpl adminRepoImpl;
 public void InsertAdmin(){
 
 Admin admin = new Admin();
-System.out.println("****************************************");
-admin.setAdminPassword("@@@@@@");
+
+admin.setAdminPassword("Adm@234");
 
 adminRepoImpl.insertAdmin(admin);
 
@@ -30,8 +30,8 @@ adminRepoImpl.insertAdmin(admin);
 @Test
 void SelectAdminTest() {
 	
-	Admin admin = adminRepoImpl.selectAdmin(24);
-	
+	Admin admin = adminRepoImpl.selectAdmin(15);
+	System.out.println("****************************************");
 		System.out.println(" Admin Id is : "+ admin.getAdminID());
 		System.out.println("accountDetails User Id : "+ admin.getAdminPassword());
 }
@@ -49,7 +49,7 @@ public void SelectAllAdminTest() {
 @Test
 public void updateAdminTest() {
 	Admin admin = new Admin();
-admin.setAdminID(26);
+admin.setAdminID(15);
 admin.setAdminPassword("@@@@@");
 adminRepoImpl.updateAdmin(admin);
 	
@@ -59,7 +59,7 @@ adminRepoImpl.updateAdmin(admin);
 void deleteAdminTest(){
 	Admin admin=new Admin();
 	
-	adminRepoImpl.deleteAdmin(24);
+	adminRepoImpl.deleteAdmin(15);
 }
 
 }

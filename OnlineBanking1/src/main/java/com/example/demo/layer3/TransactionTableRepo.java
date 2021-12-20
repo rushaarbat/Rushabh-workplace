@@ -8,11 +8,11 @@ import com.example.demo.layer2.TransactionTable;
 @Repository
 public interface TransactionTableRepo {
 	
-	void insertTransactionTable(TransactionTable ttobj); //C
+	      void insertTransactionTable(TransactionTable ttobj); //C
 	
-	TransactionTable selectTransactionTable(int ttno); //R
+	 public  TransactionTable selectTransactionTable(int ttno); //R
 	
-		List<TransactionTable> selectAllTransactionTable(); //RA
+     public  List<TransactionTable> selectAllTransactionTable(); //RA
 		
 		void updateTransactionTable(TransactionTable ttobj); //U
 		

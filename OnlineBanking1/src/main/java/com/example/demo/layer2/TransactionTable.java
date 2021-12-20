@@ -20,7 +20,7 @@ public class TransactionTable {
 	
 	private double amountTransferred;
 	private String remark;
-	private LocalDate transactionDate;
+	private LocalDate transactionDate = java.time.LocalDate.now();;
 	
 	//**********mapping*******************//
 	

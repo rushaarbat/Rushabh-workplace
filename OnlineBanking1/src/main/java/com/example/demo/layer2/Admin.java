@@ -38,7 +38,7 @@ public class Admin {
 	}
 	/**************mapping**************************/
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "admin")
+	@OneToMany( mappedBy = "admin",cascade = CascadeType.ALL)
 	private Set<Approval> approvalSet = new HashSet<Approval>();
 	
 	

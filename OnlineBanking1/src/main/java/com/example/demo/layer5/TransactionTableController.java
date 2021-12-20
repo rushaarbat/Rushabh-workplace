@@ -24,35 +24,34 @@ public class TransactionTableController {
 	@Autowired 
 	TransactionTableRepoImpl transTableRepoImpl;
 	 
-	@GetMapping("/get/{transid}")   //http://localhost:8080/transactiontable/get/57
-	public TransactionTable getTrans (@PathVariable ("transid") int x) {
-		TransactionTable trans;
+	@GetMapping("/get/{ttno}")   //http://localhost:8080/transactiontable/get/57
+	public TransactionTable getTrans (@PathVariable int ttno) {
 		
-		trans=transTableRepoImpl.selectTransactionTable(x);
-		return trans;
+		return transTableRepoImpl.selectTransactionTable(ttno);
 	}
 	
 	@GetMapping("/getAll")
 	public List <TransactionTable> getTrans(){
-		List <TransactionTable> transList;
-		transList=transTableRepoImpl.selectAllTransactionTable();
-		return transList;
-	}
-	@PostMapping("/add")
-	public void addTrans(@RequestBody TransactionTable transObj) {
 		
-		transTableRepoImpl.insertTransactionTable(transObj);
+		return transTableRepoImpl.selectAllTransactionTable();
+	}
+	
+	@PostMapping("/add")
+	public void addTrans(@RequestBody TransactionTable ttobj) {
+		
+		transTableRepoImpl.insertTransactionTable(ttobj);
 	}
 	
 	@PutMapping("/update")
-	public void updateTrans(@RequestBody TransactionTable transObj) {
+	public void updateTrans(@RequestBody TransactionTable ttobj) {
 		
-		transTableRepoImpl.updateTransactionTable(transObj);
+		transTableRepoImpl.updateTransactionTable(ttobj);
 	}
-	@DeleteMapping("/delete/{transid}")
-	public void deleteTrans(@RequestBody  int transObj) {
+	
+	@DeleteMapping("/delete/{ttno}")
+	public void deleteTrans(@RequestBody  int ttno) {
 		
-		transTableRepoImpl.deleteTransactionTable(transObj);
+		transTableRepoImpl.deleteTransactionTable(ttno);
 	}
 
 }

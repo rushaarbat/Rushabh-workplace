@@ -1,6 +1,5 @@
 package com.example.demo.layer2;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,13 +20,14 @@ public class Approval {
 	
 	/***************mapping********************/
 	
-	@OneToOne (cascade = CascadeType.ALL )
+	@OneToOne
 	private CustomerDetails customerDetails;
 	
 	@ManyToOne
 	@JoinColumn(name="adminId")
 	private Admin admin;
 	
+	//******************************************************************//
 	
 	public Approval() {
 		super();
@@ -38,6 +38,7 @@ public class Approval {
 		this.customerDetails = customerDetails;
 		this.admin = admin;
 	}
+	
 	@Override
 	public String toString() {
 		return "Approval [SRN=" + SRN + ", approvalStatus=" + approvalStatus + ", customerDetails=" + customerDetails

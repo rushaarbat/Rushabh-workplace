@@ -31,13 +31,13 @@ public class TransactionCRUDTest {
 	@Test
 	public void InsertTransaction() {
 
-		LocalDate lds = LocalDate.of(2021, 7, 7);
+	
 		TransactionTable transTable = new TransactionTable();
 
-		transTable.setModeOfTransaction("Debit Card");
+		transTable.setModeOfTransaction("RTGS");
 		transTable.setAmountTransferred(2000.8);
 		transTable.setRemark("Done");
-		transTable.setTransactionDate(lds);
+		//transTable.setTransactionDate(null);
 
 		transTableRepoImpl.insertTransactionTable(transTable);
 
@@ -47,14 +47,14 @@ public class TransactionCRUDTest {
 @Test
 void SelectTransactionTest() {
 	
-	TransactionTable transTable = transTableRepoImpl.selectTransactionTable(31);
-	
+	TransactionTable transTable = transTableRepoImpl.selectTransactionTable(11);
+	 System.out.println("****************************************");
 		System.out.println("transaction ID   is : "+ transTable.getTransactionId());
 		System.out.println(" Mode Of Transaction is : "+ transTable.getModeOfTransaction());
 		System.out.println(" Amount Transferred Is : "+ transTable.getAmountTransferred());
 		System.out.println(" remark  Is : "+ transTable.getRemark());
 		System.out.println(" TransactionDate Is : "+ transTable.getTransactionDate());
-		
+		 System.out.println("****************************************");
 }
 
 @Test
@@ -62,25 +62,25 @@ public void SelectAllTransactionTest() {
 	List<TransactionTable>transList;
 	transList = transTableRepoImpl.selectAllTransactionTable();
 	for (TransactionTable transTable : transList) {
-		
+		 System.out.println("****************************************");
 		System.out.println("transaction ID   is : "+ transTable.getTransactionId());
 		System.out.println(" Mode TransactionTableOf Transaction is : "+ transTable.getModeOfTransaction());
 		System.out.println(" Amount Transferred Is : "+ transTable.getAmountTransferred());
 		System.out.println(" remark  Is : "+ transTable.getRemark());
 		System.out.println(" TransactionDate Is : "+ transTable.getTransactionDate());
-		
+		 System.out.println("****************************************");
 	}
 }
 @Test
 public void updateTransactionTest() {
 	
-	LocalDate lds = LocalDate.of(2021, 9, 7);
-	
+
 	TransactionTable transTable = new TransactionTable();
-	transTable.setModeOfTransaction("UPI");
+	transTable.setTransactionId(11);
+	transTable.setModeOfTransaction("NEFT");
 	transTable.setAmountTransferred(2000.8);
 	transTable.setRemark("Done");
-	transTable.setTransactionDate(lds);
+    transTableRepoImpl.merge(transTable);
 
 	
 	
@@ -89,7 +89,7 @@ public void updateTransactionTest() {
 @Test
 void deleteTransactionTest(){
 	TransactionTable transTable = new TransactionTable();
-	transTableRepoImpl.deleteTransactionTable(41);;
+	transTableRepoImpl.deleteTransactionTable(12);;
 }
 
 //***********************One to one  payee****************************************//
@@ -114,15 +114,15 @@ public void InsertPayeeBeneficiaryACCNoToExistingTransaction() {
  @Test
   public void InsertTransactionsToExistingAccount(){
 	 
-	 LocalDate lds = LocalDate.of(2021, 7, 7);
+	
 	 
-	 AccountDetails accountDetails = accountDetailsRepoImpl.selectAccountDetails(70);
+	 AccountDetails accountDetails = accountDetailsRepoImpl.selectAccountDetails(4);
 	 TransactionTable transTable = new TransactionTable();
 	
 	    transTable.setModeOfTransaction("UPI");
 		transTable.setAmountTransferred(2000.8);
 		transTable.setRemark("Done");
-		transTable.setTransactionDate(lds);
+		
 		transTable.setAccountDetails(accountDetails);
 	transTableRepoImpl.insertTransactionTable(transTable);
 

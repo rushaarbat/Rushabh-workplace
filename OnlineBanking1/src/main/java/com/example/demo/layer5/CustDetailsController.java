@@ -22,39 +22,38 @@ import com.example.demo.layer4.CustomerDetailsServiceImp;
 public class CustDetailsController {
 
 	@Autowired
-	CustomerDetailsRepoImpl custDetailsRepoImp;
+	CustomerDetailsServiceImp customerDetailsServiceImp;
 	
 
-	@GetMapping("/get/{custid}") // http://localhost:8080/cust/get/20
-	public CustomerDetails getCust(@PathVariable("custid") int id) {
-		CustomerDetails custDet;
-		custDet = custDetailsRepoImp.selectCustomerDetails(id);
-		return custDet;
+	@GetMapping("/get/{cdno}") // http://localhost:8080/cust/get/20
+	public CustomerDetails getCust(@PathVariable int cdno) {
+	
+		return customerDetailsServiceImp.selectCustomerDetails(cdno);
 	}
 
 	@GetMapping("/list") // http://localhost:8081/cust/list
 	public List<CustomerDetails> getCusts() {
 
-		return custDetailsRepoImp.selectAllCustomerDetails();
+		return customerDetailsServiceImp.selectAllCustomerDetails();
 
 	}
 
 	@PostMapping("/add")
-	public void addCustDet(@RequestBody CustomerDetails custdetObj) {
+	public void addCustDet(@RequestBody CustomerDetails cdobj) {
 
-		custDetailsRepoImp.insertCustomerDetails(custdetObj);
+		customerDetailsServiceImp.insertCustomerDetails(cdobj);
 	}
 
 	@PutMapping("/update")
-	public void updateCustdet(@RequestBody CustomerDetails custdetObj) {
+	public void updateCustdet(@RequestBody CustomerDetails cdobj) {
 
-		custDetailsRepoImp.updateCustomerDetails(custdetObj);
+		customerDetailsServiceImp.updateCustomerDetails(cdobj);
 	}
 
-	@DeleteMapping("/delete/{custid}")
-	public void deleteCustdet(@PathVariable("custid") int custdetObj) {
-
-		custDetailsRepoImp.deleteCustomerDetails(custdetObj);
-	}
+//	@DeleteMapping("/delete/{cdno}")
+//	public void deleteCustdet(@PathVariable int cdno) {
+//
+//		customerDetailsServiceImp.deleteCustomerDetails(cdno);
+//	}
 
 }

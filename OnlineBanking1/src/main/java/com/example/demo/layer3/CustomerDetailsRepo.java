@@ -14,8 +14,8 @@ public interface CustomerDetailsRepo {
 	
 	void insertCustomerDetails(CustomerDetails cdobj); //C
 		
-	CustomerDetails selectCustomerDetails(int cdno) throws CustomerNotFoundException ; //R
-		List<CustomerDetails> selectAllCustomerDetails(); //RA
+	  CustomerDetails selectCustomerDetails(int cdno)  ; //R
+      List<CustomerDetails> selectAllCustomerDetails(); //RA
 		
 		void updateCustomerDetails(CustomerDetails cdobj); //U
 		void deleteCustomerDetails(int cdno) throws CustomerNotFoundException; //D

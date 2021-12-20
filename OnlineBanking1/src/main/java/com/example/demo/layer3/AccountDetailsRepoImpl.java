@@ -15,6 +15,7 @@ public class AccountDetailsRepoImpl extends BaseRepository implements AccountDet
 	public AccountDetailsRepoImpl() {
 		System.out.println("AccountDetailsRepoImpl ..");	
 }
+	
 	@Transactional
 	public void insertAccountDetails(AccountDetails adobj) {
 		super.persist(adobj); // invoking the dummy persist of the super class

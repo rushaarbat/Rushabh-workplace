@@ -36,7 +36,7 @@ payeeRepoImpl.insertPayee(payee);
 @Test
 void SelectPayeeTest() {
 	
-	Payee payee = payeeRepoImpl.selectPayee(31);
+	Payee payee = payeeRepoImpl.selectPayee(8);
 	    System.out.println("****************************************");
 		System.out.println("Payee  Beneficiary Accound Number  is : "+ payee.getBeneficiaryAccNo());
 		System.out.println("Payee beneficiary name  : "+ payee.getBeneficiaryName());
@@ -59,7 +59,7 @@ public void SelectAllPayeeTest() {
 @Test
 public void updatePayeeTest() {
 	Payee payee = new Payee();
-	payee.setBeneficiaryAccNo(31);
+	payee.setBeneficiaryAccNo(9);
 	payee.setBeneficiaryName("lakhan");
 	payee.setNickname("lakhuu");
 	payeeRepoImpl.updatePayee(payee);
@@ -70,7 +70,7 @@ public void updatePayeeTest() {
 @Test
 void deletePayeeTest(){
 	Payee payee = new Payee();
-	payeeRepoImpl.deletePayee(44);
+	payeeRepoImpl.deletePayee(9);
 	
 }
 //	*************** one Account Having many payees****************************//
@@ -78,11 +78,11 @@ void deletePayeeTest(){
 @Test
 void InsertAccNoToPayee() {
 	
-	AccountDetails accountDetails = accountDetailsRepoImpl.selectAccountDetails(70);
+	AccountDetails accountDetails = accountDetailsRepoImpl.selectAccountDetails(4);
 	Payee payee= new Payee();
 	
-	payee.setBeneficiaryName("Fasil");
-	payee.setNickname("fassi");
+	payee.setBeneficiaryName("Fazil");
+	payee.setNickname("fazzi");
 	
 	payee.setAccountDetails(accountDetails);
 	

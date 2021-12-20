@@ -21,21 +21,21 @@ public class CustomerDetailsCRUDTest {
 		
 	CustomerDetails customerDetails= new CustomerDetails();
 	
-	customerDetails.setTitle("Mr");
-	customerDetails.setFirstName("Aamir");
+	customerDetails.setTitle("ms");
+	customerDetails.setFirstName("Sonali");
 	customerDetails.setMiddleName("Rajesh");
-	customerDetails.setLastName("Chaubey");
+	customerDetails.setLastName("Bendre");
 	customerDetails.setMobileNumber(77748428l);
-	customerDetails.setEmail("aamir97@gmail.com");
+	customerDetails.setEmail("sona97@gmail.com");
 	customerDetails.setAadharNumber(28466464464l);
 	customerDetails.setDob(LocalDate.of(1997, 9, 27));
-	customerDetails.setFatherName("sankar shukla");
+	customerDetails.setFatherName("s bendre");
 	customerDetails.setInitialAmount(1000);
 	customerDetails.setResidLine1("SBI Colony ");
 	customerDetails.setResidLine2("near Wagh society");
 	customerDetails.setResidLandmark("Temple");
 	customerDetails.setResidState("MH");
-	customerDetails.setResidCity("Shegaon");
+	customerDetails.setResidCity("delhi");
 	customerDetails.setResidPincode(444203l);
 	customerDetails.setPerLine1("Krishana Nagar");
 	customerDetails.setPerLine2("near apl ghar society");
@@ -45,7 +45,7 @@ public class CustomerDetailsCRUDTest {
 	customerDetails.setPerPincode(412216l);
 	customerDetails.setOccupationType(" Soft Engg");
 	customerDetails.setIncomeSource("Job");
-	customerDetails.setGrossAnnualIncome(500000);
+	customerDetails.setGrossAnnualIncome(400000);
 	customerDetails.setDebitCard("Y");
 	customerDetails.setOptNetBank("Y");
 	
@@ -55,7 +55,7 @@ public class CustomerDetailsCRUDTest {
 
 	@Test
 	public void selectCustDetTest() {
-		CustomerDetails customerDetails = custDetRepoImpl.selectCustomerDetails(68);
+		CustomerDetails customerDetails = custDetRepoImpl.selectCustomerDetails(1);
 		
 		    System.out.println("********************************");
 			System.out.println("customerDetails CustID : "+customerDetails.getCustId());
@@ -134,8 +134,8 @@ public class CustomerDetailsCRUDTest {
 		CustomerDetails customerDetails=new CustomerDetails();
 		
 
-		customerDetails.setCustId(67);
-		customerDetails.setTitle("MIS");
+		customerDetails.setCustId(2);
+		customerDetails.setTitle("MISS");
 		customerDetails.setFirstName("SANA");
 		customerDetails.setMiddleName("DEELAP");
 		customerDetails.setLastName("ROY");
@@ -169,7 +169,7 @@ public class CustomerDetailsCRUDTest {
 	void deleteCustDetailsTest(){
 		CustomerDetails customerDetails=new CustomerDetails();
 		
-		custDetRepoImpl.deleteCustomerDetails(68);
+		custDetRepoImpl.deleteCustomerDetails(2);
 	}
   
 	

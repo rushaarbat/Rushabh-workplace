@@ -23,36 +23,33 @@ public class ApprovalController {
 	@Autowired 
 	ApprovalRepoImpl approvalRepoImpl;
 	
-	@GetMapping("/get/{APRNO}")
-	public Approval getApproval (@PathVariable ("APRNO") int x) {
-		Approval appr;
+	@GetMapping("/get/{aprno}")   //http://localhost:8080/approval/get/5
+	public Approval getApproval (@PathVariable int aprno) {
 		
-		appr=approvalRepoImpl.selectApproval(x);
-		return appr;
+		return approvalRepoImpl.selectApproval(aprno);
 	}
 	
-	@GetMapping("/getAll")
+	@GetMapping("/getAll")//http://localhost:8080/approval/getAll
 	public List <Approval> getApprovals(){
-		List <Approval> approvalList;
-		approvalList=approvalRepoImpl.selectAllApproval();
-		return approvalList;
+		
+		return approvalRepoImpl.selectAllApproval();
 	}
 	
 	@PostMapping("/add")
-	public void addApproval(@RequestBody Approval apprObj) {
+	public void addApproval(@RequestBody Approval aprobj) {
 		
-		approvalRepoImpl.insertApproval(apprObj);
+		approvalRepoImpl.insertApproval(aprobj);
 	}
 	
 	@PutMapping("/update")
-	public void updateApproval(@RequestBody Approval apprObj) {
+	public void updateApproval(@RequestBody Approval aprobj) {
 		
-		approvalRepoImpl.updateApproval(apprObj);
+		approvalRepoImpl.updateApproval(aprobj);
 	}
-	@DeleteMapping("/delete/{APRNO}")
-	public void deleteApproval(@RequestBody  int apprObj) {
+	@DeleteMapping("/delete/{aprno}")
+	public void deleteApproval(@RequestBody  int aprno) {
 		
-		approvalRepoImpl.deleteApproval(apprObj);
+		approvalRepoImpl.deleteApproval(aprno);
 	}
 
 }

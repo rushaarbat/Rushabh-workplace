@@ -23,36 +23,33 @@ public class PayeeController {
 	@Autowired 
 	PayeeRepoImpl payeeRepoImpl;
 	
-	@GetMapping("/get/{payeeno}")  //http://localhost:8080/payee/get/55
-	public Payee getPayee (@PathVariable ("payeeno") int x) {
-		Payee payee;
+	@GetMapping("/get/{pno}")  //http://localhost:8080/payee/get/55
+	public Payee getPayee (@PathVariable int pno) {
 		
-		payee=payeeRepoImpl.selectPayee(x);
-		return payee;
+		return payeeRepoImpl.selectPayee(pno);
 	}
 	
 	@GetMapping("/getAll")
 	public List <Payee> getPayees(){
-		List <Payee> payeeList;
-		payeeList=payeeRepoImpl.selectAllPayees();
-		return payeeList;
+		
+		return payeeRepoImpl.selectAllPayees();
 	}
 	
 	@PostMapping("/add")
-	public void addPayee(@RequestBody Payee payeeObj) {
+	public void addPayee(@RequestBody Payee pobj) {
 		
-		payeeRepoImpl.insertPayee(payeeObj);
+		payeeRepoImpl.insertPayee(pobj);
 	}
 	
 	@PutMapping("/update")
-	public void updatePayee(@RequestBody Payee payeeObj) {
+	public void updatePayee(@RequestBody Payee pobj) {
 		
-		payeeRepoImpl.updatePayee(payeeObj);
+		payeeRepoImpl.updatePayee(pobj);
 	}
-	@DeleteMapping("/delete/{payeeno}")
-	public void deletePayee(@RequestBody  int payeeObj) {
+	@DeleteMapping("/delete/{pno}")
+	public void deletePayee(@RequestBody  int pno) {
 		
-		payeeRepoImpl.deletePayee(payeeObj);
+		payeeRepoImpl.deletePayee(pno);
 	}
 
 }

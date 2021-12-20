@@ -9,10 +9,10 @@ import com.example.demo.layer2.CustomerDetails;
 
 @Service
 public interface CustomerDetailsService {
-	public void selectCustomerDetails(int id) throws CustomerNotFoundException;
-      public List<CustomerDetails> getCustomerDetails();
-	  public void insertCustomerDetails(CustomerDetails customerDetails);
-	  public void updateCustomerDetails(int id, CustomerDetails customerDetails);
+	public CustomerDetails selectCustomerDetails(int cdno) ;
+      public List<CustomerDetails> selectAllCustomerDetails();
+	  public void insertCustomerDetails(CustomerDetails cdobj);
+	  public void updateCustomerDetails(CustomerDetails cdobj);
 	 
 		
 	

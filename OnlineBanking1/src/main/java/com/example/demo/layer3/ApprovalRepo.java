@@ -11,7 +11,7 @@ public interface ApprovalRepo {
 	
 	void insertApproval(Approval aprobj); //C
 	
-	Approval selectApproval(int aprno); //R
+	    Approval selectApproval(int aprno); //R
 	
 		List<Approval> selectAllApproval(); //RA
 		
