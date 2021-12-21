@@ -13,6 +13,7 @@ public interface CustomerDetailsService {
       public List<CustomerDetails> selectAllCustomerDetails();
 	  public void insertCustomerDetails(CustomerDetails cdobj);
 	  public void updateCustomerDetails(CustomerDetails cdobj);
+	  public void deleteCustomerDetails(int cdno);
 	 
 		
 	

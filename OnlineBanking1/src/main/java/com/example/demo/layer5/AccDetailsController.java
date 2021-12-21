@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.layer2.AccountDetails;
 
 import com.example.demo.layer3.AccountDetailsRepoImpl;
+import com.example.demo.layer4.AccountDetailsServiceImp;
 
 
 @RestController
@@ -22,38 +23,37 @@ import com.example.demo.layer3.AccountDetailsRepoImpl;
 public class AccDetailsController {
 	
 	@Autowired 
-	AccountDetailsRepoImpl accDetailsRepoImpl;
+	AccountDetailsServiceImp accountDetailsServiceImp;
 	
 	@GetMapping("/get/{adno}") // http://localhost:8080/accountdetails/get/21
 	public AccountDetails getAcc (@PathVariable int adno) {
-		AccountDetails acc;
 		
-		acc=accDetailsRepoImpl.selectAccountDetails(adno);
-		return acc;
+		
+		return accountDetailsServiceImp.selectAccountDetails(adno);
 	}
 	
-	@GetMapping("/getAll")  // http://localhost:8081/accountdetails/getAll
-	public List <AccountDetails> getAccs(){
+	@GetMapping("/getAll")  // http://localhost:8080/accountdetails/getAll
+	public List <AccountDetails> getAllAccountDetails(){
 		
-		return  accDetailsRepoImpl.selectAllAccountDetails();
+		return  accountDetailsServiceImp.selectAllAccDetails();
 	}
 	
 	@PostMapping("/add")   // http://localhost:8080/cust/add
 	public void addAcc(@RequestBody AccountDetails adobj) {
 		
-		accDetailsRepoImpl.insertAccountDetails(adobj);
+		accountDetailsServiceImp.insertAccountDetais(adobj);
 	}
 	
 	@PutMapping("/update")   // http://localhost:8080/cust/update
 	public void updateAcc(@RequestBody AccountDetails adobj) {
 		
-		accDetailsRepoImpl.updateAccountDetails(adobj);
+		accountDetailsServiceImp.updateAccoundDetails(adobj);
 	}
 	
 	@DeleteMapping("/delete/{adno}")   // http://localhost:8080/cust/delete
 	public void deleteAcc(@RequestBody  int adno) {
 		
-		accDetailsRepoImpl.deleteAccountDetails(adno);
+		accountDetailsServiceImp.deleteAccountDetails(adno);
 	}
 
 }

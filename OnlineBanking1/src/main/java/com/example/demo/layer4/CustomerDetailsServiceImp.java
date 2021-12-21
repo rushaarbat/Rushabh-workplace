@@ -41,6 +41,14 @@ public class CustomerDetailsServiceImp implements CustomerDetailsService{
 		cusDetailsRepoImpl.merge(cdobj);
 		
 	}
+
+	@Transactional
+	public void deleteCustomerDetails(int cdno) {
+	cusDetailsRepoImpl.deleteCustomerDetails(cdno);
+		
+	}
+
+	
 	
 	
 }

@@ -102,9 +102,9 @@ void deleteAccountDetailsTest(){
 public void insertcustDetailsToExistingAccountTest () {
 	
 	
-	AccountDetails accObj1 = accDetRepoImp.find(AccountDetails.class, 4);
+	AccountDetails accObj1 = accDetRepoImp.find(AccountDetails.class, 14);
 	
-	CustomerDetails custObj1 = custRepo.find(CustomerDetails.class, 1);
+	CustomerDetails custObj1 = custRepo.find(CustomerDetails.class, 3);
 	
 	custObj1.setAccountDetails(accObj1);// are we setting the FK?
 	accObj1.setCustomerDetails(custObj1); // are we setting the FK?

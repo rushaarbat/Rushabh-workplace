@@ -15,41 +15,43 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.layer2.Payee;
 
 import com.example.demo.layer3.PayeeRepoImpl;
+import com.example.demo.layer4.PayeeServiceImp;
 
 @RestController
 @RequestMapping("/payee")
 public class PayeeController {
 	
 	@Autowired 
-	PayeeRepoImpl payeeRepoImpl;
+	PayeeServiceImp payeeServiceImp;
+	
 	
 	@GetMapping("/get/{pno}")  //http://localhost:8080/payee/get/55
 	public Payee getPayee (@PathVariable int pno) {
 		
-		return payeeRepoImpl.selectPayee(pno);
+		return payeeServiceImp.selectPayee(pno);
 	}
 	
 	@GetMapping("/getAll")
 	public List <Payee> getPayees(){
 		
-		return payeeRepoImpl.selectAllPayees();
+		return payeeServiceImp.selectAllPayees();
 	}
 	
 	@PostMapping("/add")
 	public void addPayee(@RequestBody Payee pobj) {
 		
-		payeeRepoImpl.insertPayee(pobj);
+		payeeServiceImp.insertPayee(pobj);
 	}
 	
-	@PutMapping("/update")
-	public void updatePayee(@RequestBody Payee pobj) {
-		
-		payeeRepoImpl.updatePayee(pobj);
-	}
+//	@PutMapping("/update")
+//	public void updatePayee(@RequestBody Payee pobj) {
+//		
+//		payeeServiceImp.updatePayee(pobj);
+//	}
 	@DeleteMapping("/delete/{pno}")
 	public void deletePayee(@RequestBody  int pno) {
 		
-		payeeRepoImpl.deletePayee(pno);
+		payeeServiceImp.deletePayee(pno);
 	}
 
 }
