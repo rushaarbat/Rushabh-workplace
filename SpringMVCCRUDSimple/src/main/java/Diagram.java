@@ -1,0 +1,22 @@
+
+public class Diagram {
+
+}
+/*
+
+
+
+					Emp
+	
+
+
+
+
+
+
+
+*/
+
+
+
+

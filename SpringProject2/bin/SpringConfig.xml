@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx.xsd">
+ 
+  
+ 	 <bean id="mycar" class="com.java.Car">
+ 	 	<constructor-arg ref="myengine"></constructor-arg>
+ 	 </bean>
+	
+ 	 <bean id="myengine" class="com.java.Engine">
+ 	 		<constructor-arg ref="mypiston"></constructor-arg>
+ 	 </bean>
+
+ 	 <bean id="mypiston" class="com.java.Piston">
+ 	 	<constructor-arg value="TwinSpark"></constructor-arg>
+ 	 </bean>
+ 	 
+ 	 <bean id="mydept" class="com.java.Department" > 
+ 	 
+ 	 <property name="departmentNumber" value="9"/>
+ 	 <property name="departmentName" value="IT"/>
+ 	 <property name="departmentLocation" value="jack"/></bean>
+ 	 
+ 	 
+ 	 
+ 	 <bean id="myemp" class="com.java.Employee" > 
+ 	 
+ 	 <property name="employeeNumber" value="44"/>
+ 	 <property name="employeeName" value="surya"/>
+ 	 <property name="employeeLocation" value="shegaon"/>
+ 	 
+ 	 </bean>
+ 	
+ </beans>

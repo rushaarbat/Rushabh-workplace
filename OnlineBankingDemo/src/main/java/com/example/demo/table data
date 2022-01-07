@@ -1,0 +1,7 @@
+CREATE TABLE admin(
+adminId int primary key,
+adminPassword varchar(20)
+);
+
+INSERT INTO admin values (101,'abc11');
+INSERT INTO admin values (102,'abc22');

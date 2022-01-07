@@ -1,0 +1,29 @@
+@background-color: rgb(240, 240, 104);
+
+body {
+  background-color: @background-color;
+}
+
+.my-padding(@size) {
+  padding: @size;
+}
+
+.button {
+  // padding: 10px;
+  .my-padding(20px);
+  color: white;
+  background-color: #f8e2e2;
+}
+
+.primary-button:extend(.button) {
+  background-color: #color[primary];
+}
+
+.secondary-button:extend(.button) {
+  background-color: #color[secondary];
+}
+
+#color() {
+  primary: rgb(235, 100, 100);
+  secondary: rgb(133, 133, 226);
+}

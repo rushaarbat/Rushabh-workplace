@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx.xsd">
+ 
+<!--  import com.java.Car;
+ Piston mypiston = new Piston("TwinSpark");
+ Engine myengine = new Engine();
+ Car mycar = new Car(myengine); -->
+ 
+ <!-- @Component("mycar") -->
+ 	 <bean id="mycar" class="com.java.Car" scope="singleton">
+ 	 	<constructor-arg ref="myengine"></constructor-arg>
+ 	 </bean>
+	
+	
+	<!-- @Component("myengine") -->
+ 	 <bean id="myengine" class="com.java.Engine" scope="singleton">
+ 	 		<constructor-arg ref="mypiston"></constructor-arg>
+ 	 </bean>
+
+	<!-- @Component("mypiston") -->
+ 	 <bean id="mypiston" class="com.java.Piston" scope="singleton">
+ 	 	<constructor-arg value="TwinSpark"></constructor-arg>
+ 	 </bean>
+
+ 	
+  	<bean id="mydept" class="com.java.Department" >
+ 		<property name="departmentNumber" value="10"/>
+ 		<property name="departmentName" value="Learning"/>
+ 		<property name="departmentLocation" value="Pune"/>
+ 		
+ 	</bean>
+ 
+ </beans>

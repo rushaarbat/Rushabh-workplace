@@ -1,0 +1,36 @@
+
+body{
+    background-color: rgb(7, 202, 228);
+}
+.container{
+   margin: auto;
+   padding-left: 450px;
+   padding-top: 100px;
+}
+input[type=text]
+{
+    height: 30px;width: 300px;
+}
+
+
+.box1{
+    
+    height: 30px;
+    width: 360px;
+    padding-top: 10px;
+}
+.box2{
+    height: 30px;
+    width: 360px;
+    padding-top: 10px;
+}
+.box3{
+    height: 30px;
+    width: 360px;
+    padding-top: 10px;
+}
+.box4{
+    height: 30px;
+    width: 360px;
+    padding-top: 10px;
+}
